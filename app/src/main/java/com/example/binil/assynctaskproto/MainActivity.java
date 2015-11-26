@@ -22,11 +22,14 @@ import java.util.HashMap;
 
 import cz.msebera.android.httpclient.Header;
 
+//===========================================
+// Author Binil Surendran
+//===========================================
 public class MainActivity extends ActionBarActivity {
 
 
     private ListView lv;
-    ArrayList<HashMap<String, String>> productList;
+
     ArrayList<ItemListPogo> arraylist = new ArrayList<ItemListPogo>();
     ListViewAdapter adapter;
     JSONArray contacts = null;
