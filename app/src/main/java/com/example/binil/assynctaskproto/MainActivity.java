@@ -117,7 +117,7 @@ public class MainActivity extends ActionBarActivity {
            // Start POST method parsing
            //===============================================================================================
         
-             AsyncHttpClient clientPost = new AsyncHttpClient();
+          /*   AsyncHttpClient clientPost = new AsyncHttpClient();
              JSONObject jsonParams = new JSONObject();
              try 
              {
@@ -144,7 +144,7 @@ public class MainActivity extends ActionBarActivity {
 
                       }
                      });
-
+                */
            //===============================================================================================
            // End POST method parsing
            //===============================================================================================
