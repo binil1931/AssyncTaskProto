@@ -33,6 +33,7 @@ public class MainActivity extends ActionBarActivity {
     ArrayList<ItemListPogo> arraylist = new ArrayList<ItemListPogo>();
     ListViewAdapter adapter;
     JSONArray contacts = null;
+    String URL= "http://api.androidhive.info/contacts";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +42,9 @@ public class MainActivity extends ActionBarActivity {
         lv = (ListView) findViewById(R.id.list_view);
 
 
-
+           //===============================================================================================
+           // Start GET method parsing
+           //===============================================================================================
                 AsyncHttpClient client = new AsyncHttpClient();
                 client.get("http://api.androidhive.info/contacts/", new AsyncHttpResponseHandler() {
 
@@ -106,11 +109,45 @@ public class MainActivity extends ActionBarActivity {
 
                     }
                 });
+           //===============================================================================================
+           // End GET method parsing
+           //===============================================================================================
+           
+           //===============================================================================================
+           // Start POST method parsing
+           //===============================================================================================
+        
+             AsyncHttpClient clientPost = new AsyncHttpClient();
+             JSONObject jsonParams = new JSONObject();
+             try 
+             {
+               jsonParams.put("notes", "Test api support");
+            }
+             catch (JSONException e) {
+                e.printStackTrace();
+              }
+              StringEntity entity = null;
+             try {
+                entity = new StringEntity(jsonParams.toString());
+             } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+             }
+              clientPost.post(this, URL, entity, "application/json",
+                   new AsyncHttpResponseHandler() {
+                       @Override
+                       public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                          
+                         }
 
+                       @Override
+                       public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
 
+                      }
+                     });
 
-
-
+            //===============================================================================================
+           // eND POST method parsing
+           //===============================================================================================
     }
 
 
